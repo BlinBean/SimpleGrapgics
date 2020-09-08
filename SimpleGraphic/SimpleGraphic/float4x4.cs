@@ -60,5 +60,14 @@ namespace SimpleGraphic
             this.dz = d.Z;
             this.dw = d.W;
         }
+        public float4 Mul(float4 r)
+        {
+            float x = ax * r.X + ay * r.Y + az * r.Z + aw * r.W;
+            float y = bx * r.X + by * r.Y + bz * r.Z + bw * r.W;
+            float z = cx * r.X + cy * r.Y + cz * r.Z + cw * r.W;
+            float w = dx * r.X + dy * r.Y + dz * r.Z + dw * r.W;
+            float4 re = new float4(x,y,z,w);
+            return re;
+        }
     }
 }

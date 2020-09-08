@@ -1,0 +1,9 @@
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphic.exe.config
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphic.exe
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphic.pdb
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csprojAssemblyReference.cache
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.Form1.resources
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.Properties.Resources.resources
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.GenerateResource.cache
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.exe
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.pdb
