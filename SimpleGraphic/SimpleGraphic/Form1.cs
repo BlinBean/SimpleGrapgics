@@ -13,28 +13,42 @@ namespace SimpleGraphic
 {
     public partial class Form1 : Form
     {
+        Triangle t;
+        float4x4 m_scale;
         public Form1()
         {
             InitializeComponent();
-
+            m_scale = new float4x4();
+            m_scale[1, 1] = 250;
+            m_scale[2, 2] = 250;
+            m_scale[3, 3] = 250;
+            m_scale[4, 4] = 1;
 
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            float4 a = new float4(0, 0, 0, 1);
-            float4 b = new float4(1, 0, 0, 1);
-            float4 c = new float4(0, 1, 0, 1);
-            Triangle tri = new Triangle(a, b, c);
-            Graphics g = this.CreateGraphics();
-            tri.OnDraw(g);
-
-            //Pen pen = new Pen(Color.Red,4) ;
-            //g.DrawLine(pen,new PointF(10,80),new PointF(250,80));
+            float4 a = new float4(0, -0.5f, 0, 1);
+            float4 b = new float4(0.5f, 0.5f, 0, 1);
+            float4 c = new float4(-0.5f, 0.5f, 0, 1);
+            t = new Triangle(a, b, c);
            
+
 
 
         }
 
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            t.OnDraw(e.Graphics);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            t.Transform(m_scale);
+            //无效//强制重绘
+            this.Invalidate();
+        }
     }
 }

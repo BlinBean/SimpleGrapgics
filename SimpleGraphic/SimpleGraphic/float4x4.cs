@@ -8,66 +8,47 @@ namespace SimpleGraphic
 {
     class float4x4
     {
-        float ax; float ay; float az; float aw;
-        float bx; float by; float bz; float bw;
-        float cx; float cy; float cz; float cw;
-        float dx; float dy; float dz; float dw;
-        public float4x4(float ax,float ay,float az,float aw,
-                        float bx, float by, float bz, float bw,
-                        float cx, float cy, float cz, float cw,
-                        float dx, float dy, float dz, float dw
-                        )
+        float[,] pts;
+        public float4x4()
         {
-            this.ax = ax;
-            this.ay = ay;
-            this.az = az;
-            this.aw = aw;
-
-            this.bx = bx;
-            this.by = by;
-            this.bz = bz;
-            this.bw = bw;
-
-            this.cx = cx;
-            this.cy = cy;
-            this.cz = cz;
-            this.cw = cw;
-
-            this.dx = dx;
-            this.dy = dy;
-            this.dz = dz;
-            this.dw = dw;
+            pts = new float[4, 4];
         }
-        public float4x4(float4 a,float4 b,float4 c,float4 d)
+        public float this[int i,int j]
         {
-            this.ax = a.X;
-            this.ay = a.Y;
-            this.az = a.Z;
-            this.aw = a.W;
-
-            this.bx = b.X;
-            this.by = b.Y;
-            this.bz = b.Z;
-            this.bw = b.W;
-
-            this.cx = c.X;
-            this.cy = c.Y;
-            this.cz = c.Z;
-            this.cw = c.W;
-
-            this.dx = d.X;
-            this.dy = d.Y;
-            this.dz = d.Z;
-            this.dw = d.W;
+            get { return pts[i - 1, j - 1]; }
+            set { pts[i - 1, j - 1] = value; }
         }
+
         public float4 Mul(float4 r)
         {
-            float x = ax * r.X + ay * r.Y + az * r.Z + aw * r.W;
-            float y = bx * r.X + by * r.Y + bz * r.Z + bw * r.W;
-            float z = cx * r.X + cy * r.Y + cz * r.Z + cw * r.W;
-            float w = dx * r.X + dy * r.Y + dz * r.Z + dw * r.W;
+            //float x = this[1, 1] * r.X + this[2, 1] * r.Y + this[3, 1] * r.Z + this[4, 1] * r.W;
+            //float y = this[1, 2] * r.X + this[2, 2] * r.Y + this[3, 2] * r.Z + this[4, 2] * r.W;
+            //float z = this[1, 3] * r.X + this[2, 3] * r.Y + this[3, 3] * r.Z + this[4, 3] * r.W;
+            //float w = this[1, 4] * r.X + this[2, 4] * r.Y + this[3, 4] * r.Z + this[4, 4] * r.W;
+
+            float x = this[1, 1] * r.X + this[1, 2] * r.Y + this[1, 3] * r.Z + this[1, 4] * r.W;
+            float y = this[2, 1] * r.X + this[2, 2] * r.Y + this[2, 3] * r.Z + this[2, 4] * r.W;
+            float z = this[3, 1] * r.X + this[3, 2] * r.Y + this[3, 3] * r.Z + this[3, 4] * r.W;
+            float w = this[4, 1] * r.X + this[4, 2] * r.Y + this[4, 3] * r.Z + this[4, 4] * r.W;
+
+
             float4 re = new float4(x,y,z,w);
             return re;
+        }
+        public float4x4 Mul(float4x4 m)
+        {
+            float4x4 newM = new float4x4();
+            for (int w = 1; w <= 4; w++)
+            {
+                for (int h=1;h<=4 ;h++ )
+                {
+                    for (int n=1;n<=4 ;n++ )
+                    {
+                        newM[w, h] += this[w, n] * m[n,h];
+                    }
+                }
+            }
+            return newM;
         }
     }
 }
