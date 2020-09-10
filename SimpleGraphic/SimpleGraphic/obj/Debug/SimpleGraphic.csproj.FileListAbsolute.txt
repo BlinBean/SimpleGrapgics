@@ -7,4 +7,6 @@ D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraph
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.GenerateResource.cache
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.exe
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.pdb
-D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.CoreCompileInputs.cache
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphicMathf.dll
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphicMathf.pdb
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.CopyComplete

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SimpleGraphic
+namespace SimpleGraphicMathf
 {
-    class float4
+    public class float4
     {
         float x;
         float y;
@@ -29,11 +25,11 @@ namespace SimpleGraphic
         public float4(float4 f)
         {
             this.x = f.X;
-            this.y =f. Y;
-            this.z =f. Z;
+            this.y = f.Y;
+            this.z = f.Z;
             this.w = f.W;
         }
-        public float X{get { return x; } }
+        public float X { get { return x; } }
         public float Y { get { return y; } }
         public float Z { get { return z; } }
         public float W { get { return w; } }

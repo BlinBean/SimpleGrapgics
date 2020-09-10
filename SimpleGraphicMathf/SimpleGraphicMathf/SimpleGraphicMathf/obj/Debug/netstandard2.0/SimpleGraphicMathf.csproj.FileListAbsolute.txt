@@ -1,0 +1,7 @@
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\bin\Debug\netstandard2.0\SimpleGraphicMathf.deps.json
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\bin\Debug\netstandard2.0\SimpleGraphicMathf.dll
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\bin\Debug\netstandard2.0\SimpleGraphicMathf.pdb
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.AssemblyInfoInputs.cache
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.AssemblyInfo.cs
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.dll
+D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.pdb
