@@ -90,14 +90,12 @@ namespace SimpleGraphic
             m_rotation_x[3, 3] = (float)Math.Cos(angle);
             m_rotation_x[4, 4] = 1;
 
-
             m_rotation_z[1,1]= (float)Math.Cos(angle);
             m_rotation_z[1, 2] = (float)Math.Sin(angle);
             m_rotation_z[2, 1] = -(float)Math.Sin(angle);
             m_rotation_z[2, 2] = (float)Math.Cos(angle);
             m_rotation_z[3, 3] = 1;
             m_rotation_z[4, 4] = 1;
-
 
             // Console.WriteLine("aaa");
 
