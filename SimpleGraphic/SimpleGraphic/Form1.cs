@@ -55,9 +55,9 @@ namespace SimpleGraphic
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            float4 a = new float4(0, -0.5f, 0, 1);
-            float4 b = new float4(0.5f, 0.5f, 0, 1);
-            float4 c = new float4(-0.5f, 0.5f, 0, 1);
+            float4 a = new float4(0, 0.5f, 0, 1);
+            float4 b = new float4(0.5f, -0.5f, 0, 1);
+            float4 c = new float4(-0.5f, -0.5f, 0, 1);
             t = new Triangle(a, b, c);
         }
 
@@ -71,7 +71,7 @@ namespace SimpleGraphic
             if (a == 720)
                 a = 0;
 
-            a += 10;
+            a += 5;
             double angle = a/360.0*Math.PI ;
 
 
@@ -97,9 +97,30 @@ namespace SimpleGraphic
             m_rotation_z[3, 3] = 1;
             m_rotation_z[4, 4] = 1;
 
-            // Console.WriteLine("aaa");
 
-            float4x4 m = m_scale.Mul(m_rotation_x);
+           
+
+            if (this.cbX.Checked)
+            {
+                float4x4 tx = m_rotation_x.Transpose();
+                m_rotation_x= m_rotation_x.Mul(tx);
+            }
+            if (this.cbY.Checked)
+            {
+                float4x4 ty = m_rotation_y.Transpose();
+                m_rotation_y= m_rotation_y.Mul(ty);
+            }
+            if (this.cbZ.Checked)
+            {
+                float4x4 tz = m_rotation_z.Transpose();
+                m_rotation_z= m_rotation_z.Mul(tz);
+            }
+
+
+            float4x4 m_rotation = new float4x4();
+            m_rotation = m_rotation_x.Mul(m_rotation_y.Mul(m_rotation_z));
+
+            float4x4 m = m_scale.Mul(m_rotation);
             float4x4 mv = m.Mul(m_view);
             float4x4 mvp = mv.Mul(m_projection);
 
@@ -112,6 +133,11 @@ namespace SimpleGraphic
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             m_view[4, 3] = (sender as TrackBar).Value;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

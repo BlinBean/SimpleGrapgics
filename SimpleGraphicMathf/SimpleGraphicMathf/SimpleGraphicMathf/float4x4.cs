@@ -48,5 +48,19 @@ namespace SimpleGraphicMathf
             }
             return newM;
         }
+        public float4x4 Transpose()
+        {
+            float4x4 m = new float4x4();
+            for (int i = 1; i < 5; i++)
+            {
+                for (int j = 1; j < 5; j++)
+                {
+                    m[i, j] = this[j, i];
+                }
+            }
+            return m;
+
+        }
     }
+    
 }

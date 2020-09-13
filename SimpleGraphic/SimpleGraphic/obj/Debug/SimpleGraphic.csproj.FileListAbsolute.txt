@@ -10,3 +10,4 @@ D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraph
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphicMathf.dll
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\bin\Debug\SimpleGraphicMathf.pdb
 D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.CopyComplete
+D:\School\Scripts\Graph\Simple\SimpleGraphic\SimpleGraphic\obj\Debug\SimpleGraphic.csproj.CoreCompileInputs.cache

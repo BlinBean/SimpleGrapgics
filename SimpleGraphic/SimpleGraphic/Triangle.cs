@@ -44,9 +44,9 @@ namespace SimpleGraphic
         public PointF[] GetPointF()
         {
             PointF[] getPoints= new PointF[4];
-            getPoints[0] = new PointF(a.X / a.W, a.Y / a.W);
-            getPoints[1] = new PointF(b.X / b.W, b.Y / b.W);
-            getPoints[2] = new PointF(c.X / c.W, c.Y / c.W);
+            getPoints[0] = new PointF(a.X / a.W, -a.Y / a.W);
+            getPoints[1] = new PointF(b.X / b.W,- b.Y / b.W);
+            getPoints[2] = new PointF(c.X / c.W, -c.Y / c.W);
             //这里是因为需要从最末连到第一个顶点
             getPoints[3] = getPoints[0];
             return getPoints;
