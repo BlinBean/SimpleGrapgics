@@ -125,7 +125,6 @@ namespace SimpleGraphic
             float4x4 mvp = mv.Mul(m_projection);
 
             t.Transform(mvp);
-            //t.Transform(m_rotation_y);
             //无效//强制重绘
             this.Invalidate();
         }
@@ -137,7 +136,6 @@ namespace SimpleGraphic
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

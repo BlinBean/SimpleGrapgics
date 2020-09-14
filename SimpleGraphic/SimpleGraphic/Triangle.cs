@@ -52,5 +52,12 @@ namespace SimpleGraphic
             return getPoints;
 
         }
+        public float4 CalculateNormal()
+        {
+            float4 u= a - b;
+            float4 v = b - c;
+            float4 normal = u.Cross(v);
+            return normal;
+        }
     }
 }

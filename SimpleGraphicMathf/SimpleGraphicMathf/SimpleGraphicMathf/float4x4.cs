@@ -59,8 +59,8 @@ namespace SimpleGraphicMathf
                 }
             }
             return m;
-
         }
+        
     }
     
 }
