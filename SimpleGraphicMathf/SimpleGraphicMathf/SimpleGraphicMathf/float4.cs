@@ -35,12 +35,16 @@ namespace SimpleGraphicMathf
         public float W { get { return w; } }
         public float4 Cross(float4 n)
         {
-            float4 c=new float4(this.x * n.Y,this.y*n.Z,this.z*n.W,this.w*n.X);
+
+            float4 c=new float4(this.y*n.Z-this.z*n.Y ,
+                                this.z*n.X-this.x*n.Z ,
+                                this.x*n.Y-this.y-n.X ,
+                                0);
             return c;
         }
         public float Dot(float4 n)
         {
-            return x * n.X + y * n.Y + z * n.Z + w * n.W;
+            return x * n.X + y * n.Y + z * n.Z;
         }
         public static float4 operator -(float4 a,float4 b)
         {
