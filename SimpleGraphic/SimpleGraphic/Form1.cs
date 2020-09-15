@@ -22,6 +22,7 @@ namespace SimpleGraphic
         float4x4 m_rotation_x;
         float4x4 m_view;
         float4x4 m_projection;
+        Cube cube;
 
         public Form1()
         {
@@ -50,20 +51,22 @@ namespace SimpleGraphic
             m_projection[3, 4] = (float)1/250;
            // m_projection[4, 4] = 1;
 
+            cube = new Cube();
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             float4 a = new float4(0, 0.5f, 0, 1);
             float4 b = new float4(0.5f, -0.5f, 0, 1);
             float4 c = new float4(-0.5f, -0.5f, 0, 1);
             t = new Triangle(a, b, c);
+
+
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            t.OnDraw(e.Graphics);
+            //t.OnDraw(e.Graphics);
+            cube.Draw(e.Graphics);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -98,8 +101,6 @@ namespace SimpleGraphic
             m_rotation_z[4, 4] = 1;
 
 
-           
-
             if (this.cbX.Checked)
             {
                 float4x4 tx = m_rotation_x.Transpose();
@@ -116,7 +117,6 @@ namespace SimpleGraphic
                 m_rotation_z= m_rotation_z.Mul(tz);
             }
 
-
             float4x4 m_rotation = new float4x4();
             m_rotation = m_rotation_x.Mul(m_rotation_y.Mul(m_rotation_z));
 
@@ -124,8 +124,13 @@ namespace SimpleGraphic
             float4x4 mv = m.Mul(m_view);
             float4x4 mvp = mv.Mul(m_projection);
 
-            t.CalculateLighting(m,new float4(-1,1,-1,0));
-            t.Transform(mvp);
+            //t.CalculateLighting(m,new float4(-1,1,-1,0));
+           // t.Transform(mvp);
+
+            cube.CalculateLighting(m_scale,new float4(-1,1,-1,0));
+            cube.Transform(mvp);
+
+
             //无效//强制重绘
             this.Invalidate();
         }

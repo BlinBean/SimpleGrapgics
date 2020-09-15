@@ -22,6 +22,7 @@ namespace SimpleGraphic
 
        // float4 normal;
         float dot;
+        bool cullBack;
         public Triangle(float4 a,float4 b,float4 c)
         {
             this.A =this.a= new float4(a);
@@ -36,20 +37,23 @@ namespace SimpleGraphic
         }
         public void OnDraw(Graphics g)
         {
-
-
-
             //设置坐标系中心
-            g.TranslateTransform(300, 300);
+            //g.TranslateTransform(300, 300);
 
             Pen pen = new Pen(Color.Red,2);
-            PointF[] getpoints= GetPointF();
-            g.DrawLines(pen,getpoints);
-            SolidBrush br = new SolidBrush(Color.FromArgb((int)(200*dot)+55, (int)(200 * dot) + 55, (int)(200 * dot) + 55, (int)(200 * dot) + 55) );
-            GraphicsPath graphicsPath = new GraphicsPath();
-            graphicsPath.AddLines(getpoints);
-            g.FillPath(br,graphicsPath) ;
-            
+            PointF[] getpoints=this.GetPointF();
+            //g.DrawLines(pen,getpoints);
+
+            SolidBrush br;
+            if (!cullBack)
+            {
+                GraphicsPath path = new GraphicsPath();
+                path.AddLines(getpoints);
+                int r = (int)(200 * dot) + 55;
+                br = new SolidBrush(Color.FromArgb(r,r,r,r));
+                g.FillPath(br, path);
+            }
+
         }
         public PointF[] GetPointF()
         {
@@ -60,7 +64,6 @@ namespace SimpleGraphic
             //这里是因为需要从最末连到第一个顶点
             getPoints[3] = getPoints[0];
             return getPoints;
-
         }
         public void CalculateLighting(float4x4 m,float4 l)
         {
@@ -71,8 +74,10 @@ namespace SimpleGraphic
             normal=normal.Normalized;
             l = l.Normalized;
             dot = l.Dot(normal);
-            dot = 0 > dot ? 0 : dot;
-            dot = dot > 1 ? 1 : dot;
+           // dot = 0 > dot ? 0 : dot;
+            //dot = dot > 1 ? 1 : dot;
+            dot = Math.Max(0,dot);
+            cullBack = new float4(0, 0, -1, 0).Dot(normal) < 0 ? true : false;
         }
     }
 }

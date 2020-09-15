@@ -34,6 +34,7 @@
             this.cbX = new System.Windows.Forms.CheckBox();
             this.cbY = new System.Windows.Forms.CheckBox();
             this.cbZ = new System.Windows.Forms.CheckBox();
+            this.cbLine = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,33 +58,50 @@
             // cbX
             // 
             this.cbX.AutoSize = true;
+            this.cbX.BackColor = System.Drawing.Color.Black;
+            this.cbX.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbX.Location = new System.Drawing.Point(459, 41);
             this.cbX.Name = "cbX";
             this.cbX.Size = new System.Drawing.Size(30, 16);
             this.cbX.TabIndex = 1;
             this.cbX.Text = "X";
-            this.cbX.UseVisualStyleBackColor = true;
+            this.cbX.UseVisualStyleBackColor = false;
             this.cbX.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // cbY
             // 
             this.cbY.AutoSize = true;
+            this.cbY.BackColor = System.Drawing.Color.Black;
+            this.cbY.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbY.Location = new System.Drawing.Point(459, 64);
             this.cbY.Name = "cbY";
             this.cbY.Size = new System.Drawing.Size(30, 16);
             this.cbY.TabIndex = 2;
             this.cbY.Text = "Y";
-            this.cbY.UseVisualStyleBackColor = true;
+            this.cbY.UseVisualStyleBackColor = false;
             // 
             // cbZ
             // 
             this.cbZ.AutoSize = true;
+            this.cbZ.BackColor = System.Drawing.Color.Black;
+            this.cbZ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbZ.Location = new System.Drawing.Point(459, 87);
             this.cbZ.Name = "cbZ";
             this.cbZ.Size = new System.Drawing.Size(30, 16);
             this.cbZ.TabIndex = 3;
             this.cbZ.Text = "Z";
-            this.cbZ.UseVisualStyleBackColor = true;
+            this.cbZ.UseVisualStyleBackColor = false;
+            // 
+            // cbLine
+            // 
+            this.cbLine.AutoSize = true;
+            this.cbLine.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbLine.Location = new System.Drawing.Point(459, 109);
+            this.cbLine.Name = "cbLine";
+            this.cbLine.Size = new System.Drawing.Size(48, 16);
+            this.cbLine.TabIndex = 4;
+            this.cbLine.Text = "Line";
+            this.cbLine.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -91,6 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.cbLine);
             this.Controls.Add(this.cbZ);
             this.Controls.Add(this.cbY);
             this.Controls.Add(this.cbX);
@@ -113,6 +132,7 @@
         private System.Windows.Forms.CheckBox cbX;
         private System.Windows.Forms.CheckBox cbY;
         private System.Windows.Forms.CheckBox cbZ;
+        private System.Windows.Forms.CheckBox cbLine;
     }
 }
 
