@@ -50,5 +50,13 @@ namespace SimpleGraphicMathf
         {
             return new float4(a.X-b.X,a.Y-b.Y,a.Z-b.Z,a.W-b.W);
         }
+        public float4 Normalized
+        {
+            get
+            {
+                float sum = (float)Math.Sqrt(x * x + y * y + z * z+w*w);
+                return new float4(x / sum, y / sum, z / sum, w/sum);
+            }
+        }
     }
 }

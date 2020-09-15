@@ -124,6 +124,7 @@ namespace SimpleGraphic
             float4x4 mv = m.Mul(m_view);
             float4x4 mvp = mv.Mul(m_projection);
 
+            t.CalculateLighting(m,new float4(-1,1,-1,0));
             t.Transform(mvp);
             //无效//强制重绘
             this.Invalidate();

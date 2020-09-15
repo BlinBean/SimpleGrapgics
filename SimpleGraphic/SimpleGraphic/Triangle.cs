@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace SimpleGraphic
         float4 b;
         float4 c;
 
+       // float4 normal;
+        float dot;
         public Triangle(float4 a,float4 b,float4 c)
         {
             this.A =this.a= new float4(a);
@@ -33,12 +36,19 @@ namespace SimpleGraphic
         }
         public void OnDraw(Graphics g)
         {
+
+
+
             //设置坐标系中心
             g.TranslateTransform(300, 300);
 
             Pen pen = new Pen(Color.Red,2);
             PointF[] getpoints= GetPointF();
             g.DrawLines(pen,getpoints);
+            SolidBrush br = new SolidBrush(Color.FromArgb((int)(200*dot)+55, (int)(200 * dot) + 55, (int)(200 * dot) + 55, (int)(200 * dot) + 55) );
+            GraphicsPath graphicsPath = new GraphicsPath();
+            graphicsPath.AddLines(getpoints);
+            g.FillPath(br,graphicsPath) ;
             
         }
         public PointF[] GetPointF()
@@ -52,12 +62,17 @@ namespace SimpleGraphic
             return getPoints;
 
         }
-        public float4 CalculateNormal()
+        public void CalculateLighting(float4x4 m,float4 l)
         {
-            float4 u= a - b;
-            float4 v = b - c;
+            this.Transform(m);
+            float4 u= b-a;
+            float4 v = c-a;
             float4 normal = u.Cross(v);
-            return normal;
+            normal=normal.Normalized;
+            l = l.Normalized;
+            dot = l.Dot(normal);
+            dot = 0 > dot ? 0 : dot;
+            dot = dot > 1 ? 1 : dot;
         }
     }
 }
