@@ -38,24 +38,24 @@ namespace SimpleGraphicMathf
 
             float4 c=new float4(this.y*n.Z-this.z*n.Y ,
                                 this.z*n.X-this.x*n.Z ,
-                                this.x*n.Y-this.y-n.X ,
+                                this.x*n.Y-this.y*n.X ,
                                 0);
             return c;
         }
         public float Dot(float4 n)
         {
-            return x * n.X + y * n.Y + z * n.Z;
+            return x * n.X + y * n.Y + z * n.Z + w * n.W;
         }
         public static float4 operator -(float4 a,float4 b)
         {
-            return new float4(a.X-b.X,a.Y-b.Y,a.Z-b.Z,a.W-b.W);
+            return new float4(a.X - b.X, a.Y - b.Y, a.Z - b.Z, a.W - b.W);
         }
         public float4 Normalized
         {
             get
             {
-                float sum = (float)Math.Sqrt(x * x + y * y + z * z+w*w);
-                return new float4(x / sum, y / sum, z / sum, w/sum);
+                float sum = (float)Math.Sqrt(x * x + y * y + z * z + w * w);
+                return new float4(x / sum, y / sum, z / sum, w / sum);
             }
         }
     }

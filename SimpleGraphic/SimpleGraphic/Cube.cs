@@ -28,14 +28,14 @@ namespace SimpleGraphic
             triangles[0] = new Triangle(d,c,g);
             triangles[1] = new Triangle(d,g,h);
             //后
-            triangles[2] = new Triangle(a, e, b);//
-            triangles[3] = new Triangle(b, e, f);//
+            triangles[2] = new Triangle(a, e, b);
+            triangles[3] = new Triangle(b, e, f);
             //左侧
             triangles[4] = new Triangle(a, d, h);
-            triangles[5] = new Triangle(a, h, e);//报错
+            triangles[5] = new Triangle(a, h, e);
             //右侧
-            triangles[6] = new Triangle(b,f,c);//
-            triangles[7] = new Triangle(c,f,g);//
+            triangles[6] = new Triangle(b,f,c);
+            triangles[7] = new Triangle(c,f,g);
             //上面
             triangles[8] = new Triangle(a,b,c);
             triangles[9] = new Triangle(a,c,d);

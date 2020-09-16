@@ -51,17 +51,13 @@ namespace SimpleGraphic
                 SolidBrush br;
                 if (!cullBack)
                 {
-
+                    GraphicsPath path = new GraphicsPath();
+                    path.AddLines(getpoints);
+                    int r = (int)(200 * dot) + 55;
+                   // r = 255;
+                    br = new SolidBrush(Color.FromArgb(r, r, r, r));
+                    g.FillPath(br, path);
                 }
-                GraphicsPath path = new GraphicsPath();
-                path.AddLines(getpoints);
-                //int r = (int)(200 * dot) + 55;
-
-                int r = (int)(200) + 55;
-                //if (r > 255 || r < 0) { throw new Exception(dot.ToString()); }
-                br = new SolidBrush(Color.FromArgb(r, r, r, r));
-                g.FillPath(br, path);
-
             }
 
 
@@ -81,15 +77,15 @@ namespace SimpleGraphic
             this.Transform(m);
             float4 u= b-a;
             float4 v = c-a;
-            float4 normal = u.Cross(v);
-            normal=normal.Normalized;
-            l = l.Normalized;
-            dot = l.Dot(normal);
+            float4 normal = v.Cross(u).Normalized;
+            dot = l.Normalized.Dot(normal);
             //dot = 0 > dot ? 0 : dot;
             //dot = dot > 1 ? 1 : dot;
             dot = Math.Max(0,dot);
+            //if (dot.ToString() == "NaN")
+            //    throw new Exception();
             dot = Math.Min(1,dot);
-            cullBack = new float4(0, 0, -1, 0).Dot(normal) < 0 ? true : false;
+            cullBack = new float4(0, 0, -1, 0).Dot(normal.Normalized) < 0 ? true : false;
         }
     }
 }
