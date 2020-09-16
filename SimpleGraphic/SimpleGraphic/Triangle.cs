@@ -35,24 +35,35 @@ namespace SimpleGraphic
            this.b= m.Mul(B);
            this.c= m.Mul(C);
         }
-        public void OnDraw(Graphics g)
+        public void OnDraw(Graphics g,bool lineOpen)
         {
             //设置坐标系中心
             //g.TranslateTransform(300, 300);
 
             Pen pen = new Pen(Color.Red,2);
             PointF[] getpoints=this.GetPointF();
-            //g.DrawLines(pen,getpoints);
 
-            SolidBrush br;
-            if (!cullBack)
+            if(lineOpen)
+                g.DrawLines(pen,getpoints);
+
+            else
             {
+                SolidBrush br;
+                if (!cullBack)
+                {
+
+                }
                 GraphicsPath path = new GraphicsPath();
                 path.AddLines(getpoints);
-                int r = (int)(200 * dot) + 55;
-                br = new SolidBrush(Color.FromArgb(r,r,r,r));
+                //int r = (int)(200 * dot) + 55;
+
+                int r = (int)(200) + 55;
+                //if (r > 255 || r < 0) { throw new Exception(dot.ToString()); }
+                br = new SolidBrush(Color.FromArgb(r, r, r, r));
                 g.FillPath(br, path);
+
             }
+
 
         }
         public PointF[] GetPointF()
@@ -74,9 +85,10 @@ namespace SimpleGraphic
             normal=normal.Normalized;
             l = l.Normalized;
             dot = l.Dot(normal);
-           // dot = 0 > dot ? 0 : dot;
+            //dot = 0 > dot ? 0 : dot;
             //dot = dot > 1 ? 1 : dot;
             dot = Math.Max(0,dot);
+            dot = Math.Min(1,dot);
             cullBack = new float4(0, 0, -1, 0).Dot(normal) < 0 ? true : false;
         }
     }
