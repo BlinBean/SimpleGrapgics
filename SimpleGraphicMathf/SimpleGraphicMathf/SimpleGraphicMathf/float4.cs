@@ -44,11 +44,14 @@ namespace SimpleGraphicMathf
         }
         public float Dot(float4 n)
         {
-            return x * n.X + y * n.Y + z * n.Z ;
+            return (float)(this.x * n.X + this.y * n.Y + this.z * n.Z );
         }
         public static float4 operator -(float4 a,float4 b)
         {
-            return new float4(a.X - b.X, a.Y - b.Y, a.Z - b.Z, a.W - b.W);
+            return new float4(a.X - b.X,
+                              a.Y - b.Y,
+                              a.Z - b.Z,
+                              a.W - b.W);
         }
         public float4 Normalized
         {
@@ -57,6 +60,24 @@ namespace SimpleGraphicMathf
                 float sum = (float)Math.Sqrt(x * x + y * y + z * z + w * w);
                 return new float4(x / sum, y / sum, z / sum, w / sum);
             }
+        }
+        public override bool Equals(object v)
+        {
+            if (v == null)
+            {
+                return false;
+            }
+            float4 M = (float4)v;
+            if (this.x == M.X && this.y == M.Y && this.z == M.Z && this.w == M.W)
+            {
+                return true;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            //return this.Eid.GetHashCode() + this.Name.GetHashCode() + this.Money.GetHashCode();
+            return this.x.GetHashCode() + this.y.GetHashCode() + this.z.GetHashCode() + this.w.GetHashCode();
         }
     }
 }

@@ -54,8 +54,17 @@ namespace SimpleGraphic
                     GraphicsPath path = new GraphicsPath();
                     path.AddLines(getpoints);
                     int r = (int)(200 * dot) + 55;
-                   // r = 255;
-                    br = new SolidBrush(Color.FromArgb(r, r, r));
+                    // r = 255;
+                    //if(A.Equals(new float4(-0.5f, 0.5f, -0.5f, 1f))&&B.Equals(new float4(0.5f, 0.5f, -0.5f, 1f))&&C.Equals(new float4(0.5f, -0.5f, -0.5f, 1f)))
+                    //{
+                    //    //throw new Exception();
+                    //    br = new SolidBrush(Color.FromArgb(255,0 , 0,255));
+                    //}
+                    //else
+                    //{
+                    br = new SolidBrush(Color.FromArgb(r, r, r,255));
+                    //}
+
                     g.FillPath(br, path);
                 }
             }
@@ -75,17 +84,18 @@ namespace SimpleGraphic
         public void CalculateLighting(float4x4 m,float4 l)
         {
             this.Transform(m);
-            float4 u= b-a;
-            float4 v = c-a;
+            float4 u= this.b-this.a;
+            float4 v = this.c-this.a;
             float4 normal = u.Cross(v);
-            dot = l.Normalized.Dot(normal.Normalized);
+            dot = normal.Normalized.Dot(l.Normalized);
+            //dot = l.Dot(normal);
             //dot = 0 > dot ? 0 : dot;
             //dot = dot > 1 ? 1 : dot;
             dot = Math.Max(0,dot);
             //if (dot.ToString() == "NaN")
             //    throw new Exception();
             dot = Math.Min(1,dot);
-            cullBack = new float4(0, 0, -1, 0).Dot(normal.Normalized) < 0 ? true : false;
+            cullBack = new float4(0, 0, -1, 0).Normalized.Dot(normal.Normalized) < 0 ? true : false;
         }
     }
 }

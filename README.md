@@ -1,1 +1,1 @@
-### SimpleGraphics
+### SimpleGraph

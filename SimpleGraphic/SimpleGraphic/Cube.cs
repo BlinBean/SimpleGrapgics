@@ -24,24 +24,30 @@ namespace SimpleGraphic
         Triangle[] triangles= new Triangle[12];
         public Cube()
         {
-            //正面
-            triangles[0] = new Triangle(d,c,g);
-            triangles[1] = new Triangle(d,g,h);
-            //后
-            triangles[2] = new Triangle(a, e, b);
-            triangles[3] = new Triangle(b, e, f);
-            //左侧
-            triangles[4] = new Triangle(a, d, h);
-            triangles[5] = new Triangle(a, h, e);
-            //右侧
-            triangles[6] = new Triangle(b,f,c);
-            triangles[7] = new Triangle(c,f,g);
             //上面
-            triangles[8] = new Triangle(a,b,c);
-            triangles[9] = new Triangle(a,c,d);
+            triangles[0] = new Triangle(a, b, c);
+            triangles[1] = new Triangle(a, c, d);
             //下面
-            triangles[10] = new Triangle(e,h,f);
-            triangles[11] = new Triangle(f,h,g);
+            triangles[2] = new Triangle(e, h, f);
+            triangles[3] = new Triangle(f, h, g);
+
+            //正面
+            triangles[4] = new Triangle(d, c, g);
+            triangles[5] = new Triangle(d, g, h);
+
+            //后
+            triangles[6] = new Triangle(a, e, b);
+            triangles[7] = new Triangle(b, e, f);
+
+            //右侧
+            triangles[8] = new Triangle(b, f, c);
+            triangles[9] = new Triangle(c, f, g);
+
+            //左侧
+            triangles[10] = new Triangle(a, d, h);
+            triangles[11] = new Triangle(a, h, e);
+           
+          
         }
         public void Transform(float4x4 m)
         {
@@ -59,7 +65,7 @@ namespace SimpleGraphic
             }
         }
 
-        public void Draw(Graphics g,bool lineOpen)
+        public void Draw(System.Drawing.Graphics g,bool lineOpen)
         {
             g.TranslateTransform(300, 300);
             foreach (Triangle item in triangles)

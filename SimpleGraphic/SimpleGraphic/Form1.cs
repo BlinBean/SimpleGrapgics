@@ -60,23 +60,24 @@ namespace SimpleGraphic
             m_projection[3, 4] = (float)1/250;
             // m_projection[4, 4] = 1;
 
+            cube = new Cube();
             #endregion
 
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //float4 a = new float4(-0.5f, 0.5f, 0.5f, 1f);
-            //float4 b = new float4(-0.5f, -0.5f, -0.5f, 1f);
-            //float4 c = new float4(-0.5f, -0.5f, 0.5f, 1f);
-            //t = new Triangle(a, b, c);
+            float4 b = new float4(0.5f, 0.5f, 0.5f, 1f);
+            float4 E = new float4(-0.5f, -0.5f, 0.5f, 1f);
+            float4 f = new float4(0.5f, -0.5f, 0.5f, 1f);
+            //t = new Triangle(b, E, f);
 
-             cube = new Cube();
+           
 
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //t.OnDraw(e.Graphics);
+            //t.OnDraw(e.Graphics,cbLine.Checked);
             cube.Draw(e.Graphics,lineOpen);
         }
 
