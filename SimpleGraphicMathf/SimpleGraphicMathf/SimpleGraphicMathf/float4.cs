@@ -44,7 +44,7 @@ namespace SimpleGraphicMathf
         }
         public float Dot(float4 n)
         {
-            return x * n.X + y * n.Y + z * n.Z + w * n.W;
+            return x * n.X + y * n.Y + z * n.Z ;
         }
         public static float4 operator -(float4 a,float4 b)
         {

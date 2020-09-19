@@ -64,9 +64,7 @@ namespace SimpleGraphic
             g.TranslateTransform(300, 300);
             foreach (Triangle item in triangles)
             {
-                
-                    item.OnDraw(g,lineOpen);
-
+                item.OnDraw(g, lineOpen);
             }
             //for (int i = 0; i < triangles.Count() - 1; i++)
             //{

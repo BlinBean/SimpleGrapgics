@@ -48,14 +48,14 @@ namespace SimpleGraphic
 
             else
             {
-                SolidBrush br;
+                Brush br;
                 if (!cullBack)
                 {
                     GraphicsPath path = new GraphicsPath();
                     path.AddLines(getpoints);
                     int r = (int)(200 * dot) + 55;
                    // r = 255;
-                    br = new SolidBrush(Color.FromArgb(r, r, r, r));
+                    br = new SolidBrush(Color.FromArgb(r, r, r));
                     g.FillPath(br, path);
                 }
             }
@@ -77,8 +77,8 @@ namespace SimpleGraphic
             this.Transform(m);
             float4 u= b-a;
             float4 v = c-a;
-            float4 normal = v.Cross(u).Normalized;
-            dot = l.Normalized.Dot(normal);
+            float4 normal = u.Cross(v);
+            dot = l.Normalized.Dot(normal.Normalized);
             //dot = 0 > dot ? 0 : dot;
             //dot = dot > 1 ? 1 : dot;
             dot = Math.Max(0,dot);

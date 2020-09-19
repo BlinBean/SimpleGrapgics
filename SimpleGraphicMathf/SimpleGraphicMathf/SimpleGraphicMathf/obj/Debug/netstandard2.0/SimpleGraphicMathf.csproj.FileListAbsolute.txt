@@ -5,4 +5,3 @@ D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraph
 D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.AssemblyInfo.cs
 D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.dll
 D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.pdb
-D:\School\Scripts\Graph\Simple\SimpleGraphicMathf\SimpleGraphicMathf\SimpleGraphicMathf\obj\Debug\netstandard2.0\SimpleGraphicMathf.csprojAssemblyReference.cache
